@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+void quick_sort(int *a, int low, int high)
+{
+  int i = low;
+  int j = high;
+  int key = a[low];
+  while (i < j)
+  {
+    while (i < j && a[j] >= key)
+      j--;
+    if (i < j)
+      a[i] = a[j];
+    while (i < j && a[i] <= key)
+      i++;
+    if (i < j)
+      a[j] = a[i];
+  }
+  a[i] = key;
+  if (i - 1 > low)
+    quick_sort(a, low, i-1);
+  if (i + i < high)
+    quick_sort(a, i+1, high);
+}
+
+int main(void)
+{
+  
+}
